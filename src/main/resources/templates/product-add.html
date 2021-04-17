@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Product-add</title>
+	<link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+	<h1 class="display-4">Add Product</h1>
+	<form th:action="@{/product}" method="POST">
+		<div class="mb-3">
+			<label for="inputName">Name</label>
+			<input type="input" name="name" class="form-control" id="inputName">
+		</div>
+		<div class="mb-3">
+			<label for="inputPrice">Price</label>
+			<input type="input" name="price" class="form-control" id="inputPrice">
+		</div>
+		<button type="submit" class="btn btn-primary">Add Product</button>
+	</form>
+</div>
+</body>
+</html>

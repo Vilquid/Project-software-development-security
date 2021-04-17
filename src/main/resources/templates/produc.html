@@ -3,11 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Product</title>
-	<link th:rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
 <div class="container">
 	<h1 class="display-4">Product</h1>
+	<a class="btn btn-primary" th:href="@{/product/add}">Add Product</a>
+	<table class="table">
+		<thead class="thead-light">
+			<tr>
+				<th>Product Name</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="product : ${products}">
+				<td th:text="${product.name}"></td>
+				<td th:text="${product.price}"></td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 </body>
 </html>
