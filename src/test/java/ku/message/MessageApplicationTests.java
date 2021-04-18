@@ -3,11 +3,10 @@ package ku.message;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 @SpringBootTest
-class MessageApplicationTests {
-
+class MessageApplicationTests
+{
 	@Test
-	void contextLoads() {
-	}
-
+	void contextLoads() {}
 }

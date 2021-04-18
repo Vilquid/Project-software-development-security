@@ -1,37 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
-	<title>Sign Up</title>
+	<link rel="stylesheet" href="../static/css/bootstrap.css">
+	<title>Sign up</title>
+	<script src="../static/js/signup.js"></script> <!-- JS don't works-->
+	<script src="../static/js/bootstrap.bundle.js"></script>
+	<script src="../static/js/bootstrap.esm.js"></script>
+	<script src="../static/js/bootstrap.js"></script>
 </head>
 <body>
 <div class="container w-50 p-3">
-	<h1 class="display-5">Sign Up</h1>
-	<form action="#" th:action="@{/signup}" method="POST">
+	<h1 class="display-5">Sign up</h1>
+	<br>
+	<form action="#" th:action="@{/signup}" method="POST" class="needs-validation" novalidate>
 		<div id="success-msg" th:if="${signupSuccess}" class="alert alert-success">
-			You successfully signed up! Please continue to the <a th:href="@{/login}">login</a> page.
+			You successfully signed up! Please continue to the <a href="login.html">login</a> page.
 		</div>
-		<div id="error-msg" th:if="${signupError}" class="alert alert-danger">
-			<span th:text="${signupError}"></span>
+		<div class="form-floating mb-3">
+			<input type="text" class="form-control" id="inputFirstName" placeholder="input" required>
+			<label for="inputFirstName" class="form-label">First name</label>
 		</div>
-		<div class="mb-3">
-			<label for="inputFirstName">First Name</label>
-			<input id="inputFirstName" type="input" name="firstName" class="form-control">
+		<div class="form-floating mb-3">
+			<input type="text" class="form-control" id="inputLastName" placeholder="input" required>
+			<label for="inputLastName">Last name</label>
 		</div>
-		<div class="mb-3">
-			<label for="inputLastName">Last Name</label>
-			<input id="inputLastName" type="input" name="lastName" class="form-control">
-		</div>
-		<div class="mb-3">
+		<div class="form-floating mb-3">
+			<input type="text" class="form-control" id="inputUsername" placeholder="input" required>
 			<label for="inputUsername">Username</label>
-			<input id="inputUsername" type="input" name="username" class="form-control">
 		</div>
-		<div class="mb-3">
+		<div class="form-floating mb-3">
+			<input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required>
+			<label for="inputEmail">Email address</label>
+		</div>
+		<div class="form-floating mb-3">
+			<input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
 			<label for="inputPassword">Password</label>
-			<input id="inputPassword" type="password" name="password" class="form-control">
 		</div>
-		<button id="submit-button" type="submit" class="btn btn-primary">Sign Up</button>
+		<div class="col-12">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+				<label class="form-check-label" for="invalidCheck">
+					Agree to terms and conditions
+				</label>
+				<div class="invalid-feedback">
+					You must agree before submitting.
+				</div>
+			</div>
+			<br>
+		</div>
+		<button id="submit-button" type="submit" class="btn btn-primary">Sign up</button>
 	</form>
 </div>
 </body>
