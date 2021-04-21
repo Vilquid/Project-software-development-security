@@ -3,16 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Error</title>
-	<link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" href="../static/css/bootstrap.css">
 </head>
 <body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
 <div class="container w-50 p-3">
-	<h1 class="display-5">Error</h1>
+	<h1 class="display-5 text-danger">Error</h1>
+	<br>
 	<p>Something went wrong.</p>
 	<p th:text="|${#response.status} - ${httpStatus.reasonPhrase}|"></p>
-	<p>
-		<a th:href="@{/home}">Back to Home Page</a>
-	</p>
+	<br>
+	<button type="button" onclick=window.location.href="home.html" id="signup-link" class="btn btn-danger">
+		Back to the home page
+	</button>
 </div>
 </body>
 </html>
