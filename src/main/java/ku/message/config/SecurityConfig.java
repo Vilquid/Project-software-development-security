@@ -25,8 +25,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	{
 		http
 				.authorizeRequests()
-				.antMatchers("/home", "/signup", "/css/**", "/js/**").permitAll()
-				.anyRequest().authenticated();
+				.antMatchers("/home", "/signup", "/css/**", "/js/**")
+				.permitAll()
+				.antMatchers("/product/add").access("hasRole('ROLE_ADMIN')")
+				.antMatchers("/product", "/message", "/post")
+				.access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+				.anyRequest()
+				.authenticated();
 
 		http.formLogin()
 				.loginPage("/login")
@@ -46,7 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception
 	{
 		auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
-
 	}
 
 	@Bean
