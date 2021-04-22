@@ -27,6 +27,7 @@ public class UserService
 		newUser.setUsername(user.getUsername());
 		newUser.setFirstName(user.getFirstName());
 		newUser.setLastName(user.getLastName());
+		newUser.setRole(user.getRole());
 
 		String hashedPassword = passwordEncoder.encode(user.getPassword());
 

@@ -19,6 +19,18 @@ public class User
 	private String firstName;
 	private String lastName;
 
+	private String role;
+
+	public String getRole()
+	{
+		return role;
+	}
+
+	public void setRole(String role)
+	{
+		this.role = role;
+	}
+
 	public long getId()
 	{
 		return id;
