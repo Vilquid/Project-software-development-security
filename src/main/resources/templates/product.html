@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<meta charset="UTF-8">
 	<title>Product</title>
@@ -8,7 +8,9 @@
 <body>
 <div class="container">
 	<h1 class="display-4">Product</h1>
-	<a class="btn btn-primary" th:href="@{/product/add}">Add Product</a>
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+		<a class="btn btn-primary" th:href="@{/product/add}">Add Product</a>
+	</div>
 	<table class="table">
 		<thead class="thead-light">
 			<tr>
